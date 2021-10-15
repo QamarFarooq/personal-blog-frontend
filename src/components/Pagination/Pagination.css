@@ -1,0 +1,12 @@
+.pagination-container {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:60px;
+    text-align: center;
+}
+
+.pagination-element {
+    padding-left:50px;
+    padding-right:50px;
+}

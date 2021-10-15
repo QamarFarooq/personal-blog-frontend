@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import PostList from './components/PostList/PostList.js';
+import Title from './containers/Title/Title.js';
+import Pagination from './components/Pagination/Pagination.js';
+import Navbar from './containers/Navbar/Navbar.js';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Outlet,
+  useParams
+} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload!!.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = props => {
+
+    useState();
+
+    return (
+      <div className="app-container">
+        <button>testinghh</button>
+        <Title />
+        <Navbar />
+        <PostList />
+        <Pagination />
+      </div>
+    );
 }
 
 export default App;

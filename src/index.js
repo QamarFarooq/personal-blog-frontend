@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+<link href="http://fonts.cdnfonts.com/css/ocr-a-extended" rel="stylesheet"/>
+                
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
