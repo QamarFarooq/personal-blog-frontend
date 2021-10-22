@@ -8,30 +8,43 @@
   height: 100%;
 } */
 
-
-
 * {
     color: #22e636;
-    background: black;
     /* courer is another font that can be used */
     /* font-family: Courier; */ 
     font-family: 'OCR A Extended', sans-serif; 
     text-shadow: 0px 0px 3px rgb(47, 153, 56),
                 0px 0px 3px rgb(47, 153, 56);
+    z-index: 1;
+}
+
+.something {
+  position: relative; 
+  z-index: 1; 
 }
 
 body {
     font-weight: 600; 
 }
 
-/* mouse over link */
-a:hover {
+/* Styling for nav bar */
+.nav-link:hover {
     color: black;
     background-color: #22e636;
     transition: 0.3s;
   }
 
-/* selected link */
-a:active {
-    color: red;
-  }
+.nav-link:active {
+  color: red;
+}
+
+/* Styling for paginaton */
+.pagination-element:hover {
+  color: black;
+  background-color: #22e636;
+  transition: 0.3s;
+}
+
+.pagination-element:active {
+  color: red;
+}
