@@ -1,3 +1,4 @@
+
 const Reducer = (state, action) => {
     switch (action.type) {
         case 'DO_ACTION':

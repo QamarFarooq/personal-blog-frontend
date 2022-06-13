@@ -1,11 +1,15 @@
 import './MatrixRain.css';
 import React, {useEffect, useContext, useRef, useState, useCallback} from 'react';
-import RainStream from './RainStream.js';
 import {Context} from '../../store/Store.js';
 
 
 const MatrixRain = ( props ) => {
+
+    const [state, dispatch] = useContext(Context);
+
     const canvasRef = useRef(null);
+
+    const [intervalId, setIntervalId] = useState(0);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -77,9 +81,9 @@ const MatrixRain = ( props ) => {
         };
         
         const matrixRain = [];
-        
+
         // i < 1 is just there so you can have two columns 
-        // for testing, change it back to canvas.length later
+        // for testing, change it back to canvas.width later
         for( let x = 0; x < canvas.width; x += xAxisDistanceBetweenCols ) {
 
             const matrixRainCol = Object.create(matrixCharTracker);
@@ -94,7 +98,7 @@ const MatrixRain = ( props ) => {
             context.fillRect(0, 0, canvas.width, canvas.height);
             
             // i < 1 is just there so you can have two columns 
-            // for testing, change it back to canvas.length later
+            // for testing, change it back to canvas.width later
             for(let i = 0; i < canvas.width; i += xAxisDistanceBetweenCols)
             {
                 // generate char
@@ -110,14 +114,36 @@ const MatrixRain = ( props ) => {
             }
         };
 
-        //value of 50 looks good
-        setInterval(draw, 90);
-    }, [])
+        // if we want to diplay the matrix rain
+        if (state.displayMatrix) {
+            // only create an interval when interval does
+            // not already exist
+            if (intervalId === 0) {
+                const id = setInterval(draw, 90);
+                setIntervalId(id);
+            }
+            else {
+                clearInterval(intervalId);
+                setIntervalId(0);
+            }
+        }
+        // if we want to stop matrix rain
+        else {
+            clearInterval(intervalId);
+            setIntervalId(0);
+        }
+
+    }, [state.displayMatrix])
+
+
 
     return (
-        <canvas className='matrix-rain' ref={canvasRef}>
-            {props.children}
-        </canvas>
+        <div>
+            
+            <canvas className='matrix-rain' ref={canvasRef}>
+                {props.children}
+            </canvas>
+        </div>
     )
 };
 

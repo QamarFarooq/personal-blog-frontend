@@ -22,7 +22,6 @@ const App = () => {
         <div>
           <Store>
             <MatrixRain/>
-              <Button className='something'/>
               <Title className='something'/>
               <Navbar className='something'/>
               <PostList className='something'/>

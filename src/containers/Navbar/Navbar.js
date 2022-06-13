@@ -1,6 +1,7 @@
-import React from 'react'
-import App from '../../App'
+import React from 'react';
+import App from '../../App';
 import './Navbar.css';
+import Button from '../../components/Button/Button.js';
 import {
     BrowserRouter as Router,
     Routes,
@@ -9,12 +10,12 @@ import {
     Outlet,
     useParams
   } from 'react-router-dom';
+
   
 
 const Navbar = ( props ) => (
     <div className="nav-bar">
         <Router>
-            <nav>
                 <Link to="/" className="nav-link">
                     Profile Page
                 </Link>
@@ -24,7 +25,7 @@ const Navbar = ( props ) => (
                 <Link to="/posts" className="nav-link">
                     SignInOrSignOut
                 </Link>
-            </nav>
+                <Button></Button>
         </Router>
     </div>
 

@@ -8,17 +8,9 @@ const Button = ( props ) => {
 
     const [state, dispatch] = useContext(Context);
 
-    const incrementAction = () => {
-        dispatch({
-            type:'DO_ACTION',
-            payload: 1
-        })
-      };
-
     return (
         <div>
-            {/* <button onClick={() => incrementAction()}>Display matrix!!!</button>
-            <div>{state.displayMatrix.toString()}</div> */}
+            <div className="button" onClick={() => dispatch({type: 'DO_ACTION'})}>Matrix Display {state.displayMatrix ? 'Off' : 'On'}</div>
         </div>
     )
 };
